@@ -1,0 +1,857 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VENTA CYTOTEC</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* RESET & FUENTES */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', sans-serif;
+        }
+        
+
+        /* PALETA DE COLORES */
+        :root {
+            --primary: #2D3436;
+            --secondary: #FF6B6B;
+            --light: #F8F9FA;
+            --dark: #212529;
+            --gray: #6C757D;
+        }
+        
+        /* HEADER */
+        header {
+            background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            z-index: 100;
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+        
+        .logo span {
+            color: var(--secondary);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 2rem;
+        }
+        
+
+        nav ul li a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            transition: 0.3s;
+        }
+        
+        nav ul li a:hover {
+            color: var(--secondary);
+        }
+        
+        .header-icons i {
+            margin-left: 1.5rem;
+            font-size: 1.2rem;
+            color: var(--dark);
+            cursor: pointer;
+            position: relative;
+        }
+        
+        .cart-count {
+            position: absolute;
+
+            top: -10px;
+            right: -10px;
+            background: var(--secondary);
+            color: white;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            font-size: 0.7rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        /* HERO BANNER */
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), img(src='C:\Users\LEWIS 44\Documents\banners\cy1.jpg');
+            background-size: cover;
+
+            background-position: center;
+            height: 80vh;
+            display: flex;
+            align-items: center;
+            padding: 0 10%;
+            color: white;
+            margin-top: 80px;
+        }
+        
+        .hero-content {
+            max-width: 600px;
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+
+        }
+        
+        .btn {
+            display: inline-block;
+            background: var(--secondary);
+            color: white;
+            padding: 0.8rem 2rem;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(255,107,107,0.3);
+        }
+        
+        /* CATÁLOGO */
+        .products {
+
+            padding: 5rem 10%;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--primary);
+        }
+        
+        .filter-buttons {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+        
+
+        .filter-btn {
+            padding: 0.5rem 1.5rem;
+            background: white;
+            border: 1px solid var(--gray);
+            border-radius: 30px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        
+        .filter-btn.active, .filter-btn:hover {
+            background: var(--secondary);
+            color: white;
+            border-color: var(--secondary);
+        }
+        
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        
+        .product-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: 0.3s;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+        }
+        
+        .product-img {
+            height: 250px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        
+        .product-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: 0.5s;
+        }
+        
+        .product-card:hover .product-img img {
+            transform: scale(1.1);
+        }
+        
+        .product-info {
+            padding: 1.5rem;
+        }
+        
+        .product-info h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+        
+
+        .price {
+            font-weight: 700;
+            color: var(--secondary);
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .old-price {
+            text-decoration: line-through;
+            color: var(--gray);
+            font-size: 1rem;
+            margin-left: 0.5rem;
+        }
+        
+        .rating {
+            color: #FFC107;
+            margin-bottom: 1rem;
+        }
+        
+        .add-to-cart {
+            width: 100%;
+
+            padding: 0.7rem;
+            background: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+        
+        .add-to-cart:hover {
+            background: var(--secondary);
+        }
+        
+        /* CARRITO DE COMPRAS */
+        .cart-overlay {
+            position: fixed;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 100%;
+
+            background: rgba(0,0,0,0.5);
+            z-index: 999;
+            display: none;
+            justify-content: flex-end;
+        }
+        
+        .cart {
+            width: 400px;
+            height: 100%;
+            background: white;
+            padding: 2rem;
+            overflow-y: auto;
+        }
+        
+        .cart-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid #eee;
+
+        }
+        
+        .close-cart {
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        
+        .cart-item {
+            display: flex;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .cart-item-img {
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+            border-radius: 5px;
+            margin-right: 1rem;
+        }
+
+        
+        .cart-item-info {
+            flex: 1;
+        }
+        
+        .cart-item-title {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+        
+        .cart-item-price {
+            color: var(--secondary);
+            font-weight: 600;
+        }
+        
+        .remove-item {
+            color: var(--gray);
+            cursor: pointer;
+            font-size: 0.9rem;
+        }
+        
+
+        .cart-total {
+            margin-top: 2rem;
+            font-weight: 700;
+            font-size: 1.2rem;
+            text-align: right;
+        }
+        
+        .checkout-btn {
+            width: 100%;
+            padding: 1rem;
+            background: var(--secondary);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-weight: 600;
+            margin-top: 1rem;
+            cursor: pointer;
+        }
+        
+        /* BENEFICIOS */
+        .benefits {
+
+            background: var(--light);
+            padding: 4rem 10%;
+            text-align: center;
+        }
+        
+        .benefits-container {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            margin-top: 3rem;
+        }
+        
+        .benefit-item {
+            flex: 1;
+            min-width: 200px;
+            margin: 1rem;
+            padding: 2rem;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+
+        }
+        
+        .benefit-item i {
+            font-size: 2.5rem;
+            color: var(--secondary);
+            margin-bottom: 1rem;
+        }
+        
+        /* FOOTER */
+        footer {
+            background: var(--primary);
+            color: white;
+            padding: 4rem 10%;
+        }
+        
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+        }
+
+        
+        .footer-col h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+        }
+        
+        .footer-col h3::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -10px;
+            width: 50px;
+            height: 2px;
+            background: var(--secondary);
+        }
+        
+        .footer-col ul {
+            list-style: none;
+        }
+        
+
+        .footer-col ul li {
+            margin-bottom: 0.8rem;
+        }
+        
+        .footer-col ul li a {
+            color: #ADB5BD;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+        
+        .footer-col ul li a:hover {
+            color: white;
+            padding-left: 5px;
+        }
+        
+        .social-icons {
+            display: flex;
+            margin-top: 1.5rem;
+        }
+        
+        .social-icons a {
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            margin-right: 1rem;
+            color: white;
+            transition: 0.3s;
+        }
+        
+        .social-icons a:hover {
+            background: var(--secondary);
+            transform: translateY(-5px);
+        }
+        
+        .newsletter input {
+            width: 100%;
+            padding: 0.8rem;
+            border: none;
+
+            border-radius: 5px;
+            margin-bottom: 1rem;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 3rem;
+            margin-top: 3rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: #ADB5BD;
+        }
+        
+        /* WHATSAPP FLOTANTE */
+        .whatsapp-float {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            bottom: 40px;
+            right: 40px;
+            background-color: #25D366;
+
+            color: white;
+            border-radius: 50px;
+            text-align: center;
+            font-size: 30px;
+            box-shadow: 2px 2px 3px #999;
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            nav ul {
+                display: none;
+            }
+            
+
+            .benefit-item {
+                min-width: 100%;
+            }
+            
+            .cart {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- HEADER -->
+    <header>
+        <div class="logo">ABORTO SEGURO PERÚ<span>+</span></div>
+        <nav>
+            <ul>
+                <li><a href="#">Inicio</a></li>
+                <li><a href="#">Contacto</a></li>
+                
+            </ul>
+        </nav>
+        <div class="header-icons">
+            <i class="fas fa-search"></i>
+            <i class="far fa-heart"></i>
+            <i class="fas fa-shopping-cart">
+                <span class="cart-count">0</span>
+            </i>
+        </div>
+    </header>
+    
+    <!-- HERO BANNER -->
+    <section class="hero">
+        <div class="hero-content">
+		<img src="C:\Users\LEWIS 44\Documents\banners\cy2.jpg" />
+
+            <p>Descubre nuestra colección 
+
+premium con tecnología de confort avanzada</p>
+        </div>
+    </section>
+    
+    <!-- CATÁLOGO -->
+    <section class="products">
+        <div class="section-title">
+            <h2>ABORTO SEGURO CON MEDICAMENTOS</h2>
+	<h2>CYTOTEC</h2>
+	<img src="C:\Users\LEWIS 44\Documents\hq720.jpg" align="middle">
+	<h2>~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</h2>
+	<h2>El aborto con medicamentos es uno de los procedimientos más seguros para interrumpir un embarazo. Según la organización mundial de la salud, la efectividad del aborto con medicamentos llega hasta un 98%.
+Si necesitar abortar de forma segura y con asesoria GRATUTITA, contáctanos</h2>
+<br>
+<h2>Puedes ubicarnos en Lima - Perú y realizanos envíos a todo el país</h2>
+
+        </div>
+        
+        <!-- Filtros -->
+        <div class="filter-buttons">
+            
+        </div>
+        
+        <!-- Grid de Productos -->
+        <div class="products-grid">
+            <!-- Producto 1 -->
+            <div class="product-card" data-category="hombres">
+                <div class="product-img">
+                    <img src="C:\Users\LEWIS 44\Documents\cyto2.png" alt="Cyto">
+                </div>
+                <div class="product-info">
+                    <h3>Pastillas cytotec</h3>
+                    <div class="price">$Contactanos </div>
+
+                    <div class="rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <span>(124)</span>
+                    </div>
+			<!-- WHATSAPP FLOTANTE -->
+                    	<a href="https://wa.me/51921443113" class="" target="_blank">
+        			<i class="fab fa-whatsapp"></i>
+    			</a>
+                </div>
+            </div>
+          
+            
+            
+        </div>
+    </section>
+    
+    <!-- CARRITO DE COMPRAS -->
+    <div class="cart-overlay">
+        <div class="cart">
+            <div class="cart-header">
+                <h3>Tu Carrito</h3>
+                <i class="fas fa-times close-cart"></i>
+            </div>
+            <div class="cart-content">
+                <!-- Items del carrito se añaden dinámicamente con JS -->
+            </div>
+            <div class="cart-total">
+                <strong>Total: $<span class="total-amount">0</span></strong>
+
+            </div>
+            <button class="checkout-btn">Finalizar Compra</button>
+        </div>
+    </div>
+    
+    <!-- BENEFICIOS -->
+    <section class="benefits">
+        <div class="section-title">
+            <h2>¿POR QUÉ ELEGIRNOS?</h2>
+        </div>
+        <div class="benefits-container">
+            <div class="benefit-item">
+                <i class="fas fa-truck"></i>
+                <h3>Envío Express</h3>
+                <p>Recibe tu pedido en al puerta de tu casa</p>
+            </div>
+            <div class="benefit-item">
+                <i class="fas fa-lock"></i>
+                <h3>Pago Seguro</h3>
+                <p>Protegemos tus datos</p>
+            </div>
+            <div class="benefit-item">
+                <i class="fas fa-headset"></i>
+                <h3>Asesoría Gratis</h3>
+                <p>Asesoría personalizada</p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h3>CYTOTEC</h3>
+                <p>Aborto seguro con asesoría garantizada.</p>
+                <div class="social-icons">
+                    <a href="https://es-la.facebook.com/login/device-based/regular/login/"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-tiktok"></i></a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h3>Enlaces</h3>
+                <ul>
+                    <li><a href="#">Inicio</a></li>
+                    <li><a href="#">Sobre nosotros</a></li>
+                    <li><a href="#">Blog</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h3>Ayuda</h3>
+                <ul>
+                    <li><a href="#">Guía</a></li>
+                    <li><a href="#">Envíos</a></li>
+          
+                    <li><a href="#">Preguntas frecuentes</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>Contacto</h3>
+                <ul>
+                    <li><i class="fas fa-map-marker-alt"></i> Lima - Perú</li>
+                    <li><i class="fas fa-phone"></i> +51921443113</li>
+                    <li><i class="fas fa-envelope"></i></li>
+
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2025 StoneStudio. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+    
+    <!-- WHATSAPP FLOTANTE -->
+    <a href="https://wa.me/51921443113" class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+    
+    <!-- JAVASCRIPT -->
+    <script>
+        // Variables globales
+        let cart = [];
+        let totalAmount = 0;
+        
+
+        // DOM Elements
+        const cartBtn = document.querySelector('.fa-shopping-cart');
+        const cartOverlay = document.querySelector('.cart-overlay');
+        const closeCart = document.querySelector('.close-cart');
+        const cartContent = document.querySelector('.cart-content');
+        const totalAmountEl = document.querySelector('.total-amount');
+        const cartCount = document.querySelector('.cart-count');
+        const addToCartBtns = document.querySelectorAll('.add-to-cart');
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const productCards = document.querySelectorAll('.product-card');
+        
+
+        // Event Listeners
+        cartBtn.addEventListener('click', openCart);
+        closeCart.addEventListener('click', closeCartFunc);
+        
+        // Abrir carrito
+        function openCart() {
+            cartOverlay.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        }
+        
+        // Cerrar carrito
+        function closeCartFunc() {
+            cartOverlay.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+        
+        // Añadir al carrito
+
+        addToCartBtns.forEach(btn => {
+            btn.addEventListener('click', addToCart);
+        });
+        
+        function addToCart(e) {
+            const id = e.target.dataset.id;
+            const name = e.target.dataset.name;
+            const price = parseFloat(e.target.dataset.price);
+            const img = e.target.dataset.img;
+            
+            // Verificar si el producto ya está en el carrito
+            const existingItem = cart.find(item => item.id === id);
+            
+            if (existingItem) {
+                existingItem.quantity += 1;
+            } else {
+                cart.push({
+
+                    id,
+                    name,
+                    price,
+                    img,
+                    quantity: 1
+                });
+            }
+            
+            updateCart();
+            openCart();
+            
+            // Animación de confirmación
+            const btn = e.target;
+            btn.textContent = '✓ Añadido';
+            btn.style.backgroundColor = '#4CAF50';
+            setTimeout(() => {
+                btn.textContent = 'Añadir al carrito';
+                btn.style.backgroundColor = '';
+            }, 2000);
+
+        }
+        
+        // Actualizar carrito
+        function updateCart() {
+            cartContent.innerHTML = '';
+            totalAmount = 0;
+            
+            cart.forEach(item => {
+                const cartItemEl = document.createElement('div');
+                cartItemEl.classList.add('cart-item');
+                cartItemEl.innerHTML = `
+                    <img src="${item.img}" alt="${item.name}" class="cart-item-img">
+                    <div class="cart-item-info">
+                        <h4 class="cart-item-title">${item.name}</h4>
+                        <p class="cart-item-price">$${item.price} x ${item.quantity}</p>
+                        <p class="remove-item" data-
+
+id="${item.id}">Eliminar</p>
+                    </div>
+                `;
+                cartContent.appendChild(cartItemEl);
+                
+                totalAmount += item.price * item.quantity;
+            });
+            
+            totalAmountEl.textContent = totalAmount.toFixed(2);
+            cartCount.textContent = cart.reduce((total, item) => total + item.quantity, 0);
+            
+            // Añadir event listeners a los botones de eliminar
+            document.querySelectorAll('.remove-item').forEach(btn => {
+
+                btn.addEventListener('click', removeItem);
+            });
+        }
+        
+        // Eliminar item del carrito
+        function removeItem(e) {
+            const id = e.target.dataset.id;
+            cart = cart.filter(item => item.id !== id);
+            updateCart();
+        }
+        
+        // Filtros de productos
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', filterProducts);
+        });
+        
+        function filterProducts(e) {
+            const filter = e.target.dataset.filter;
+
+            
+            // Actualizar botón activo
+            filterBtns.forEach(btn => {
+                btn.classList.remove('active');
+            });
+            e.target.classList.add('active');
+            
+            // Filtrar productos
+            productCards.forEach(card => {
+                if (filter === 'all') {
+                    card.style.display = 'block';
+                } else {
+                    const categories = card.dataset.category.split(' ');
+                    if (categories.includes(filter)) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                }
+            });
+
+        }
+        
+        // Finalizar compra
+        document.querySelector('.checkout-btn').addEventListener('click', () => {
+            if (cart.length === 0) {
+                alert('Tu carrito está vacío');
+            } else {
+                alert(`Compra realizada! Total: $${totalAmount.toFixed(2)}`);
+                cart = [];
+                updateCart();
+                closeCartFunc();
+            }
+        });
+    </script>
+</body>
+</html>
